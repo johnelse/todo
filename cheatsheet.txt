@@ -1,0 +1,28 @@
+-----------------------
+cut
+-----------------------
+
+display the text before the first @ on each line:
+
+grep @ todo.txt | cut -f 1 -d @
+cut -f 1 -d @ todo.txt
+
+-----------------------
+sed
+-----------------------
+
+delete all lines containing 'abc':
+
+sed -i '/abc/d' todo.txt
+
+prepend all lines matching 'abc' with 'def':
+
+sed -i '/abc/s/^/def/' todo.txt
+
+append all lines matching 'abc' with 'def':
+
+sed -i '/abc/s/$/def/' todo.txt
+
+replace abc with def:
+
+sed -i 's/abc/def/' todo.txt

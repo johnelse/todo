@@ -1,0 +1,52 @@
+p, a, li {
+    font-family: arial;
+}
+
+a:link {
+    color: #0000FF;
+}
+
+a:active {
+    color: #FF0000;
+}
+
+a:visited {
+    color: #0000FF;
+}
+
+a:hover {
+    color: #FF0000;
+}
+
+.items {
+    font-family: arial;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.items td, .items th {
+    font-size: 1.2em;
+    border: 1px solid #98BF21;
+    padding: 3px 2px 2px 7px;
+}
+
+.items th {
+    font-size: 1.4em;
+    text-align: left;
+    padding-top: 5px;
+    padding-bottom: 4px;
+    background-color: #A7C942;
+    color: #FFFFFF;
+}
+
+th.priority {
+    width: 10%;
+}
+
+th.task {
+    width: 70%;
+}
+
+th.project {
+    width: 20%;
+}
