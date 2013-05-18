@@ -86,6 +86,7 @@ function load_data(context) {
     $.ajax({
         url: "data/data.json",
         dataType: "json",
+        mimeType: "text/plain",
         success: function(all_data) {write_data(context, all_data)}
     });
 }
