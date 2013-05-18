@@ -1,3 +1,5 @@
 *.swp
 
+data/notes.json
+data/projects.json
 data/todo.txt

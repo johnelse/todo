@@ -7,6 +7,7 @@ var header_html = "<tr>"
     + "<th class=\"task\">Task</th>"
     + "<th class=\"project\">Project</th></tr>"
 
+// todo list
 function parse_todo_item(str) {
     var priority = str.match(re_priority);
     var context = str.match(re_context);
@@ -64,14 +65,52 @@ function load_todo(context) {
     });
 }
 
-function load_projects(context) {
-    //$("div#projects").html("<p>Projects</p>");
+// projects
+function write_projects(context, data) {
+    var project_list = data[context];
+    var items_html = project_list
+        .map(function(item) {return "<li>" + item + "</li>"})
+        .reduce(function(acc, item) {return acc + item}, "");
+    var list_html = "<ul>" + items_html + "</ul>";
+    var title_html = "<p>Projects @" + context + "</p>";
+    var projects_html = title_html + list_html;
+    $("div#projects").html(projects_html);
 }
 
+function load_projects(context) {
+    $.ajax({
+        url: "data/projects.json",
+        dataType: "json",
+        success: function(data) {write_projects(context, data)}
+    });
+}
+
+// notes
+function write_notes(context, data) {
+    var notes_list = data[context];
+    var items_html = notes_list
+        .map(function(item) {return "<li>" + item + "</li>"})
+        .reduce(function(acc, item) {return acc + item}, "");
+    var list_html = "<ul>" + items_html + "</ul>";
+    var title_html = "<p>Notes</p>";
+    var notes_html = title_html + list_html;
+    $("div#notes").html(notes_html);
+}
+
+function load_notes(context) {
+    $.ajax({
+        url: "data/notes.json",
+        dataType: "json",
+        success: function(data) {write_notes(context, data)}
+    });
+}
+
+// entry point
 $(document).ready(function() {
     // Extract the "#foo" from the end of the url; if none, default to "home".
     var hash = window.location.hash;
     var context = hash.indexOf("#") != -1 ? hash.substring(1) : "home";
     load_todo(context);
     load_projects(context);
+    load_notes(context);
 })

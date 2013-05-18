@@ -1,0 +1,12 @@
+{
+    home:
+        [
+            "note1",
+            "note2"
+        ],
+    work:
+        [
+            "note1",
+            "note2"
+        ]
+}

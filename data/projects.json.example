@@ -1,0 +1,12 @@
+{
+    home:
+        [
+            "home_project1",
+            "home_project2"
+        ],
+    work:
+        [
+            "home_project1",
+            "home_project2"
+        ]
+}
