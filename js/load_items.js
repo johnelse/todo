@@ -65,43 +65,28 @@ function load_todo(context) {
     });
 }
 
-// projects
-function write_projects(context, data) {
-    var project_list = data[context];
-    var items_html = project_list
-        .map(function(item) {return "<li>" + item + "</li>"})
-        .reduce(function(acc, item) {return acc + item}, "");
-    var list_html = "<ul>" + items_html + "</ul>";
-    var title_html = "<p>Projects @" + context + "</p>";
-    var projects_html = title_html + list_html;
-    $("div#projects").html(projects_html);
+// other data
+function write_data(context, all_data) {
+    var data = all_data[context];
+    var data_html = "";
+    for(prop in data) {
+        var items = data[prop];
+        var items_html = items
+            .map(function(item) {return "<li>" + item + "</li>"})
+            .reduce(function(acc, item) {return acc + item}, "");
+        var list_html = "<ul>" + items_html + "</ul>";
+        var title_html = "<p>" + prop + " @" + context + "</p>";
+        data_html += title_html;
+        data_html += list_html;
+    };
+    $("div#data").html(data_html);
 }
 
-function load_projects(context) {
+function load_data(context) {
     $.ajax({
-        url: "data/projects.json",
+        url: "data/data.json",
         dataType: "json",
-        success: function(data) {write_projects(context, data)}
-    });
-}
-
-// notes
-function write_notes(context, data) {
-    var notes_list = data[context];
-    var items_html = notes_list
-        .map(function(item) {return "<li>" + item + "</li>"})
-        .reduce(function(acc, item) {return acc + item}, "");
-    var list_html = "<ul>" + items_html + "</ul>";
-    var title_html = "<p>Notes</p>";
-    var notes_html = title_html + list_html;
-    $("div#notes").html(notes_html);
-}
-
-function load_notes(context) {
-    $.ajax({
-        url: "data/notes.json",
-        dataType: "json",
-        success: function(data) {write_notes(context, data)}
+        success: function(all_data) {write_data(context, all_data)}
     });
 }
 
@@ -111,6 +96,5 @@ $(document).ready(function() {
     var hash = window.location.hash;
     var context = hash.indexOf("#") != -1 ? hash.substring(1) : "home";
     load_todo(context);
-    load_projects(context);
-    load_notes(context);
+    load_data(context);
 })

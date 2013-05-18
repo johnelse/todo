@@ -1,0 +1,24 @@
+{
+    "home":{
+        "Projects":[
+            "home_project_1",
+            "home_project_2",
+            "home_project_3"
+        ],
+        "Notes":[
+            "home_note_1",
+            "home_note_2"
+        ]
+    },
+    "work":{
+        "Projects":[
+            "work_project_1",
+            "work_project_2",
+            "work_project_3"
+        ],
+        "Notes":[
+            "work_note_1",
+            "work_note_2"
+        ]
+    }
+}
