@@ -91,11 +91,28 @@ function load_data(context) {
     });
 }
 
-// entry point
-$(document).ready(function() {
+function disable_refresh() {
+    $("button#refresh").prop("disabled", true);
+    $("button#refresh").html("Loading...");
+}
+
+function enable_refresh() {
+    $("button#refresh").prop("disabled", false);
+    $("button#refresh").html("Refresh");
+}
+
+function load_all() {
     // Extract the "#foo" from the end of the url; if none, default to "home".
+    disable_refresh();
     var hash = window.location.hash;
     var context = hash.indexOf("#") != -1 ? hash.substring(1) : "home";
     load_todo(context);
     load_data(context);
+    enable_refresh();
+}
+
+// entry point
+$(document).ready(function() {
+    load_all();
+    $("button#refresh").click(load_all);
 })
