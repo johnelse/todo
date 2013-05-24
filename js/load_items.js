@@ -102,8 +102,8 @@ function enable_refresh() {
 }
 
 function load_all() {
-    // Extract the "#foo" from the end of the url; if none, default to "home".
     disable_refresh();
+    // Extract the "#foo" from the end of the url; if none, default to "home".
     var hash = window.location.hash;
     var context = hash.indexOf("#") != -1 ? hash.substring(1) : "home";
     load_todo(context);
