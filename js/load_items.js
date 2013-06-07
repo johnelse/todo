@@ -7,7 +7,7 @@ var header_html = "<tr>"
     + "<th class=\"task\">Task</th>"
     + "<th class=\"project\">Project</th></tr>"
 
-// todo list
+// convert a todolist line into a dict
 function parse_todo_item(str) {
     var priority = str.match(re_priority);
     var context = str.match(re_context);
@@ -41,6 +41,7 @@ function item_to_table_row(item) {
         + (item.project ? item.project : "") + "</td></tr>";
 }
 
+// render the main todo list
 function write_todo_items(context, data) {
     var item_strings = data.trim().split("\n");
     var rows_html = item_strings
@@ -65,7 +66,7 @@ function load_todo(context) {
     });
 }
 
-// other data
+// render the freeform JSON file
 function write_data(context, all_data) {
     var data = all_data[context];
     var data_html = "";
