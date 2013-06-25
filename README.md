@@ -16,7 +16,9 @@ cp data.json.example data.json
 ```
 
 todo.txt follows the standard [todo.txt](http://todotxt.com/) format.
-data.json is plain json - see the example file for the expected format.
-
 Todo items are only shown if they have a priority and the same context as the
 page, i.e. `dashboard.html#home` will show only items for the `@home` context.
+
+data.json is plain json - see the example file for the expected format.
+data.json is intended for more "freeform" data, notes etc. that couldn't easily
+be displayed in the todo.txt format.
