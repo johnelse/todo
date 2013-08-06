@@ -106,7 +106,7 @@ function load_all() {
     disable_refresh();
     // Extract the "#foo" from the end of the url; if none, default to "home".
     var hash = window.location.hash;
-    var context = hash.indexOf("#") != -1 ? hash.substring(1) : "home";
+    var context = hash.indexOf("#") == -1 ? "home" : hash.substring(1);
     load_todo(context);
     load_data(context);
     enable_refresh();
