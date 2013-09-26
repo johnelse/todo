@@ -116,5 +116,5 @@ function load_all() {
 $(document).ready(function() {
     load_all();
     $("button#refresh").click(load_all);
-    $(window).on ('hashchange', load_all);
+    $(window).on('hashchange', load_all);
 })
