@@ -30,6 +30,26 @@ a:hover {
     padding: 3px 2px 2px 7px;
 }
 
+.items td.priority_A {
+    background-color: #FF0000;
+}
+
+.items td.priority_B {
+    background-color: #FF9900;
+}
+
+.items td.priority_C {
+    background-color: #FFFF00;
+}
+
+.items td.priority_D {
+    background-color: #99FF66;
+}
+
+.items td.priority_E {
+    background-color: #00FF00;
+}
+
 .items th {
     font-size: 1.4em;
     text-align: left;
