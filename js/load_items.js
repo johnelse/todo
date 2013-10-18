@@ -35,7 +35,8 @@ function compare_by_priority(a, b) {
 }
 
 function item_to_table_row(item) {
-    return "<tr><td>"
+    var td_class = "priority_" + item.priority;
+    return "<tr><td class=\"" + td_class + "\">"
         + item.priority + "</td><td>"
         + item.data + "</td><td>"
         + (item.project ? item.project : "") + "</td></tr>";
