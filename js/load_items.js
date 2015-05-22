@@ -1,6 +1,6 @@
 var re_priority = /^\(([A-Z])\)\s/;
-var re_context = /\s(@[\-a-z0-9]+)/;
-var re_project = /\s(\+[\-a-z0-9]+)/;
+var re_context = /\s(@[\-a-zA-Z0-9]+)/;
+var re_project = /\s(\+[\-a-zA-Z0-9]+)/;
 
 var header_html = "<tr>"
     + "<th class=\"priority\">Priority</th>"
